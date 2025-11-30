@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ game.nome }}{% endblock %}
+
+{% block content %}
+<div class="detalhe-container">
+    <img src="{{ url_for('static', filename='img/' + game.imagem) }}">
+    <div class="detalhe-info">
+        <h1>{{ game.nome }}</h1>
+        <p>{{ game.genero }}</p>
+        <p>Nota: {{ game.nota }}/10</p>
+        <p>{{ game.descricao }}</p>
+
+        <div class="botoes-caixa">
+            <form id="gambiarra">
+                <a class="btn editar" href="{{ url_for('edit_game', id=game.id) }}">Editar</a>
+            </form>
+            <form id="Deletar_jogo" method="POST" action="{{ url_for('delete_game', id=game.id) }}">
+                <button class="btn excluir" type="submit">Deletar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<h1>Catálogo de Jogos</h1>
+
+<div class="filtros">
+    <input type="text" id="busca-jogo" placeholder="Buscar por nome...">
+    <select id="filtro-genero">
+        <option value="">Todos os gêneros</option>
+        {% for g in generos %}
+        <option value="{{ g }}">{{ g }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<div class="lista-jogos">
+    {% for game in games %}
+    <div class="jogos">
+        <img src="{{ url_for('static', filename='img/' + game.imagem) }}">
+        <h3>{{ game.nome }}</h3>
+        <p>{{ game.genero }}</p>
+        <p>Nota: {{ game.nota }}/10</p>
+        <a class="botao" href="{{ url_for('view_game', id=game.id) }}">Ver mais</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

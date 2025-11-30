@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Adicionar Jogo{% endblock %}
+
+{% block content %}
+<h1>Adicionar Jogo</h1>
+
+<form id="add_jogo" method="POST" enctype="multipart/form-data">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="text" name="genero" placeholder="Gênero" required>
+    <input type="number" name="nota" placeholder="Nota" min="0" max="10" required>
+    <input type="file" name="imagem" accept="image/*" required>
+    <textarea name="descricao" placeholder="Descrição" required></textarea>
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

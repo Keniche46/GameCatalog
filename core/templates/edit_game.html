@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Editar{% endblock %}
+
+{% block content %}
+<h1>Editar Jogo</h1>
+
+<form id="editar_jogo" method="POST" enctype="multipart/form-data">
+    <input type="text" name="nome" value="{{ game.nome }}" placeholder="Nome" required>
+    <input type="text" name="genero" value="{{ game.genero }}" placeholder="Gênero" required>
+    <input type="number" name="nota" value="{{ game.nota }}" placeholder="Nota" min="0" max="10" required>
+    <p>Imagem atual:</p>
+    <img src="{{ url_for('static', filename='img/' + game.imagem) }}" width="150" style="border-radius:6px;margin-bottom:10px;">
+    <input type="file" name="imagem">
+    <textarea name="descricao" required>{{ game.descricao }}</textarea>
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}
