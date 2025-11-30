@@ -71,9 +71,9 @@ git clone <link_do_repositorio>
 
 2. Crie e ative o ambiente virtual:
 ```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
+.venv\Scripts\activate     # Windows
 ```
 
 3. Instale as dependências:
